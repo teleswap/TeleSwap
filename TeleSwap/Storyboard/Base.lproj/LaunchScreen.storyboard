@@ -25,18 +25,29 @@
                                     <constraint firstAttribute="height" constant="300" id="kgt-Og-WSS"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NU-4q-EAA">
+                                <rect key="frame" x="20" y="781" width="374" height="61"/>
+                                <string key="text">DISCLAIMER: TeleSwap and it's affiliates advise meeting in public locations during peak times of the day as to avoid any confrontational issues.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="5NU-4q-EAA" secondAttribute="trailing" constant="20" id="Bz4-WE-SCy"/>
                             <constraint firstItem="KtR-I1-LiZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="S7U-mj-Bc0"/>
+                            <constraint firstItem="5NU-4q-EAA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="XfX-Ho-lLH"/>
+                            <constraint firstItem="5NU-4q-EAA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="gC3-i8-nEp"/>
                             <constraint firstItem="KtR-I1-LiZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="h1p-sL-qNH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5NU-4q-EAA" secondAttribute="bottom" constant="20" id="rCI-ap-du6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>

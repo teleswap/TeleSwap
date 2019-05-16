@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A119A2392287DDE2004D855C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119A2382287DDE2004D855C /* APIController.swift */; };
+		A119A23B2287DE83004D855C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119A23A2287DE83004D855C /* User.swift */; };
+		A12F0BFD228BD2AB00D6F555 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */; };
+		A12F0C01228BD41000D6F555 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A12F0BFF228BD41000D6F555 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A12F0C04228BD48600D6F555 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C03228BD48600D6F555 /* ErrorMessage.swift */; };
+		A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */; };
+		A12F0C08228BD59100D6F555 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */; };
+		A12F0C0A228BD5D100D6F555 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */; };
 		E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB7E227178A0002B6193 /* AppDelegate.swift */; };
 		E70ADB81227178A0002B6193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB80227178A0002B6193 /* ViewController.swift */; };
 		E70ADB84227178A0002B6193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70ADB82227178A0002B6193 /* Main.storyboard */; };
@@ -14,11 +22,40 @@
 		E70ADB89227178A2002B6193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70ADB87227178A2002B6193 /* LaunchScreen.storyboard */; };
 		E70ADB91227215FD002B6193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB90227215FD002B6193 /* LoginViewController.swift */; };
 		E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB9222722679002B6193 /* HomeViewController.swift */; };
+		E71A3FC7228D3BBF00B60416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */; };
 		E720A4202276B16700184085 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E720A41F2276B16700184085 /* FilterViewController.swift */; };
 		E72B4AE622749BD300700577 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B4AE522749BD300700577 /* Profile.swift */; };
+		E7A8B632228DC5C1001D0814 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8B631228DC5C1001D0814 /* PostViewController.swift */; };
+		E7A8B634228DC65F001D0814 /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8B633228DC65F001D0814 /* ListingsViewController.swift */; };
+		FFC4D044F41BB2E817CBF2D5 /* Pods_TeleSwap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D910A5C2D11DE3787BF4CD5D /* Pods_TeleSwap.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A12F0C02228BD41000D6F555 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A12F0C01228BD41000D6F555 /* JWTDecode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		478A1B388E958AB73A1F0297 /* Pods-TeleSwap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeleSwap.release.xcconfig"; path = "Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap.release.xcconfig"; sourceTree = "<group>"; };
+		A119A2382287DDE2004D855C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		A119A23A2287DE83004D855C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		A12F0BFF228BD41000D6F555 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		A12F0C03228BD48600D6F555 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
+		A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
+		A6C40D1042229B4FA04C864F /* Pods-TeleSwap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeleSwap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap.debug.xcconfig"; sourceTree = "<group>"; };
+		D910A5C2D11DE3787BF4CD5D /* Pods_TeleSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeleSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70ADB7B227178A0002B6193 /* TeleSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeleSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70ADB7E227178A0002B6193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E70ADB80227178A0002B6193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,8 +65,11 @@
 		E70ADB8A227178A2002B6193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E70ADB90227215FD002B6193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E70ADB9222722679002B6193 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E720A41F2276B16700184085 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		E72B4AE522749BD300700577 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		E7A8B631228DC5C1001D0814 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		E7A8B633228DC65F001D0814 /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +77,40 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12F0BFD228BD2AB00D6F555 /* JWTDecode.framework in Frameworks */,
+				FFC4D044F41BB2E817CBF2D5 /* Pods_TeleSwap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1BA390C5F9A352C7F6A10C09 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A6C40D1042229B4FA04C864F /* Pods-TeleSwap.debug.xcconfig */,
+				478A1B388E958AB73A1F0297 /* Pods-TeleSwap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A12F0BFB228BD2AB00D6F555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */,
+				D910A5C2D11DE3787BF4CD5D /* Pods_TeleSwap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E70ADB72227178A0002B6193 = {
 			isa = PBXGroup;
 			children = (
+				A12F0BFF228BD41000D6F555 /* JWTDecode.framework */,
 				E70ADB7D227178A0002B6193 /* TeleSwap */,
 				E70ADB7C227178A0002B6193 /* Products */,
+				A12F0BFB228BD2AB00D6F555 /* Frameworks */,
+				1BA390C5F9A352C7F6A10C09 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,18 +125,51 @@
 		E70ADB7D227178A0002B6193 /* TeleSwap */ = {
 			isa = PBXGroup;
 			children = (
-				E70ADB9222722679002B6193 /* HomeViewController.swift */,
-				E70ADB90227215FD002B6193 /* LoginViewController.swift */,
-				E70ADB7E227178A0002B6193 /* AppDelegate.swift */,
-				E70ADB80227178A0002B6193 /* ViewController.swift */,
-				E70ADB82227178A0002B6193 /* Main.storyboard */,
+				E7A8B62F228DC40D001D0814 /* View Controllers */,
+				E7A8B630228DC417001D0814 /* Delegates */,
+				E7A8B62E228DC3FE001D0814 /* Storyboard */,
 				E720A41F2276B16700184085 /* FilterViewController.swift */,
 				E72B4AE522749BD300700577 /* Profile.swift */,
 				E70ADB85227178A2002B6193 /* Assets.xcassets */,
-				E70ADB87227178A2002B6193 /* LaunchScreen.storyboard */,
 				E70ADB8A227178A2002B6193 /* Info.plist */,
+				A119A2382287DDE2004D855C /* APIController.swift */,
+				A119A23A2287DE83004D855C /* User.swift */,
+				A12F0C03228BD48600D6F555 /* ErrorMessage.swift */,
+				A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */,
+				A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */,
+				E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */,
+				A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */,
 			);
 			path = TeleSwap;
+			sourceTree = "<group>";
+		};
+		E7A8B62E228DC3FE001D0814 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E70ADB82227178A0002B6193 /* Main.storyboard */,
+				E70ADB87227178A2002B6193 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		E7A8B62F228DC40D001D0814 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E70ADB9222722679002B6193 /* HomeViewController.swift */,
+				E7A8B631228DC5C1001D0814 /* PostViewController.swift */,
+				E7A8B633228DC65F001D0814 /* ListingsViewController.swift */,
+				E70ADB90227215FD002B6193 /* LoginViewController.swift */,
+				E70ADB80227178A0002B6193 /* ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E7A8B630228DC417001D0814 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				E70ADB7E227178A0002B6193 /* AppDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +179,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E70ADB8D227178A2002B6193 /* Build configuration list for PBXNativeTarget "TeleSwap" */;
 			buildPhases = (
+				269D557356534F974A1DF13E /* [CP] Check Pods Manifest.lock */,
 				E70ADB77227178A0002B6193 /* Sources */,
 				E70ADB78227178A0002B6193 /* Frameworks */,
 				E70ADB79227178A0002B6193 /* Resources */,
+				A12F0BFE228BD34800D6F555 /* ShellScript */,
+				A12F0C02228BD41000D6F555 /* Embed Frameworks */,
+				9E0811A108CC5A414B4E79AA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E70ADB89227178A2002B6193 /* LaunchScreen.storyboard in Resources */,
+				E71A3FC7228D3BBF00B60416 /* GoogleService-Info.plist in Resources */,
 				E70ADB86227178A2002B6193 /* Assets.xcassets in Resources */,
 				E70ADB84227178A0002B6193 /* Main.storyboard in Resources */,
 			);
@@ -142,16 +243,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		269D557356534F974A1DF13E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TeleSwap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E0811A108CC5A414B4E79AA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A12F0BFE228BD34800D6F555 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JWTDecode.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/JWTDecode.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E70ADB77227178A0002B6193 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A119A2392287DDE2004D855C /* APIController.swift in Sources */,
 				E720A4202276B16700184085 /* FilterViewController.swift in Sources */,
 				E70ADB91227215FD002B6193 /* LoginViewController.swift in Sources */,
+				E7A8B632228DC5C1001D0814 /* PostViewController.swift in Sources */,
 				E72B4AE622749BD300700577 /* Profile.swift in Sources */,
+				A12F0C08228BD59100D6F555 /* UserDefaults+extension.swift in Sources */,
+				A12F0C04228BD48600D6F555 /* ErrorMessage.swift in Sources */,
+				A119A23B2287DE83004D855C /* User.swift in Sources */,
 				E70ADB81227178A0002B6193 /* ViewController.swift in Sources */,
+				A12F0C0A228BD5D100D6F555 /* UserDefaultKeys.swift in Sources */,
 				E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */,
+				E7A8B634228DC65F001D0814 /* ListingsViewController.swift in Sources */,
+				A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */,
 				E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,11 +473,17 @@
 		};
 		E70ADB8E227178A2002B6193 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6C40D1042229B4FA04C864F /* Pods-TeleSwap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZ89Q545VW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeleSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,11 +497,17 @@
 		};
 		E70ADB8F227178A2002B6193 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 478A1B388E958AB73A1F0297 /* Pods-TeleSwap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZ89Q545VW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeleSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
