@@ -277,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2c-i2-WzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3857.971014492754" y="-179.46428571428569"/>
+            <point key="canvasLocation" x="3874" y="-115"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Soz-cc-vT4">
@@ -362,6 +362,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="h6Q-vr-x8q" secondAttribute="trailing" constant="20" id="AR3-Pn-h4B"/>
                             <constraint firstAttribute="bottomMargin" secondItem="h6Q-vr-x8q" secondAttribute="bottom" constant="20" id="a9s-1A-qmY"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="FtW-uy-3sD"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxx-a4-BMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
