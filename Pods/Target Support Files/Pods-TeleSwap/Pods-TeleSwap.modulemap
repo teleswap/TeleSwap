@@ -1,0 +1,6 @@
+framework module Pods_TeleSwap {
+  umbrella header "Pods-TeleSwap-umbrella.h"
+
+  export *
+  module * { export * }
+}
