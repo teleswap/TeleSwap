@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A119A2392287DDE2004D855C /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119A2382287DDE2004D855C /* APIController.swift */; };
+		A119A23B2287DE83004D855C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A119A23A2287DE83004D855C /* User.swift */; };
+		A12F0BFD228BD2AB00D6F555 /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */; };
+		A12F0C01228BD41000D6F555 /* JWTDecode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A12F0BFF228BD41000D6F555 /* JWTDecode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A12F0C04228BD48600D6F555 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C03228BD48600D6F555 /* ErrorMessage.swift */; };
+		A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */; };
+		A12F0C08228BD59100D6F555 /* UserDefaults+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */; };
+		A12F0C0A228BD5D100D6F555 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */; };
 		E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB7E227178A0002B6193 /* AppDelegate.swift */; };
 		E70ADB81227178A0002B6193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB80227178A0002B6193 /* ViewController.swift */; };
 		E70ADB84227178A0002B6193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70ADB82227178A0002B6193 /* Main.storyboard */; };
@@ -18,7 +26,29 @@
 		E72B4AE622749BD300700577 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72B4AE522749BD300700577 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A12F0C02228BD41000D6F555 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A12F0C01228BD41000D6F555 /* JWTDecode.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		A119A2382287DDE2004D855C /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		A119A23A2287DE83004D855C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		A12F0BFF228BD41000D6F555 /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		A12F0C03228BD48600D6F555 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+extension.swift"; sourceTree = "<group>"; };
+		A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		E70ADB7B227178A0002B6193 /* TeleSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeleSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70ADB7E227178A0002B6193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E70ADB80227178A0002B6193 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,17 +67,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12F0BFD228BD2AB00D6F555 /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A12F0BFB228BD2AB00D6F555 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A12F0BFC228BD2AB00D6F555 /* JWTDecode.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E70ADB72227178A0002B6193 = {
 			isa = PBXGroup;
 			children = (
+				A12F0BFF228BD41000D6F555 /* JWTDecode.framework */,
 				E70ADB7D227178A0002B6193 /* TeleSwap */,
 				E70ADB7C227178A0002B6193 /* Products */,
+				A12F0BFB228BD2AB00D6F555 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +113,12 @@
 				E70ADB85227178A2002B6193 /* Assets.xcassets */,
 				E70ADB87227178A2002B6193 /* LaunchScreen.storyboard */,
 				E70ADB8A227178A2002B6193 /* Info.plist */,
+				A119A2382287DDE2004D855C /* APIController.swift */,
+				A119A23A2287DE83004D855C /* User.swift */,
+				A12F0C03228BD48600D6F555 /* ErrorMessage.swift */,
+				A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */,
+				A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */,
+				A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */,
 			);
 			path = TeleSwap;
 			sourceTree = "<group>";
@@ -86,6 +133,8 @@
 				E70ADB77227178A0002B6193 /* Sources */,
 				E70ADB78227178A0002B6193 /* Frameworks */,
 				E70ADB79227178A0002B6193 /* Resources */,
+				A12F0BFE228BD34800D6F555 /* ShellScript */,
+				A12F0C02228BD41000D6F555 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,16 +191,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A12F0BFE228BD34800D6F555 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JWTDecode.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Carthage/Build/iOS/JWTDecode.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E70ADB77227178A0002B6193 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A119A2392287DDE2004D855C /* APIController.swift in Sources */,
 				E720A4202276B16700184085 /* FilterViewController.swift in Sources */,
 				E70ADB91227215FD002B6193 /* LoginViewController.swift in Sources */,
 				E72B4AE622749BD300700577 /* Profile.swift in Sources */,
+				A12F0C08228BD59100D6F555 /* UserDefaults+extension.swift in Sources */,
+				A12F0C04228BD48600D6F555 /* ErrorMessage.swift in Sources */,
+				A119A23B2287DE83004D855C /* User.swift in Sources */,
 				E70ADB81227178A0002B6193 /* ViewController.swift in Sources */,
+				A12F0C0A228BD5D100D6F555 /* UserDefaultKeys.swift in Sources */,
 				E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */,
+				A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */,
 				E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,8 +376,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ89Q545VW;
+				DEVELOPMENT_TEAM = 7WH6XTF8JG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeleSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,8 +399,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TZ89Q545VW;
+				DEVELOPMENT_TEAM = 7WH6XTF8JG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TeleSwap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
