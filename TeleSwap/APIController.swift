@@ -113,8 +113,112 @@ class APIController {
             }.resume()
     }
     
+    //Get User through userId
     func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void) {
+        let url = baseUrl.appendingPathComponent("users")
+            .appendingPathComponent("\(userId)")
         
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+        
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Error with getting user: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Error retrieving data from server(getUser)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                NSLog("Error code from the http request: \(httpResponse.statusCode)")
+                do {
+                    let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+                    completion(nil, errorMessage)
+                } catch {
+                    NSLog("Error decoding ErrorMessage(getUser) \(error)")
+                    return
+                }
+                return
+            }
+            
+            
+            do {
+                let user = try JSONDecoder().decode(User.self, from: data)
+                completion(user, nil)
+            } catch {
+                NSLog("Error with network request: \(error)")
+                return
+            }
+            
+            NSLog("Successfully fetched User")
+            
+            
+            }.resume()
+        
+    }
+    
+    //Get All Listings
+    func getAllListings(completion: @escaping ([Listing]?, ErrorMessage?) -> Void) {
+        let url = baseUrl.appendingPathComponent("listings")
+        
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.get.rawValue
+        
+//        guard let token = UserDefaults.standard.token else {
+//            NSLog("No JWT Token Set to User Defaults")
+//            return
+//        }
+        
+        //request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                NSLog("Error with getting all listings: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Error retrieving data from server(getAllListings)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                NSLog("Error code from the http request: \(httpResponse.statusCode)")
+                do {
+                    let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+                    completion(nil, errorMessage)
+                } catch {
+                    NSLog("Error decoding ErrorMessage(getUserResponses) \(error)")
+                    return
+                }
+                return
+            }
+            
+            do {
+                let responses = try JSONDecoder().decode([Listing].self, from: data)
+                completion(responses, nil)
+            } catch {
+                NSLog("Error with network request: \(error)")
+                return
+            }
+            
+            NSLog("Successfully fetched all Listings")
+            
+            
+            }.resume()
     }
     
     
