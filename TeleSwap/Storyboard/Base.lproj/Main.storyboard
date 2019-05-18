@@ -359,6 +359,9 @@
                                                         <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addImagesTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="nIT-0S-mUu"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="4ee-0d-ZvC">
                                                 <rect key="frame" x="20" y="458.66666666666663" width="374" height="94.333333333333371"/>
@@ -379,7 +382,7 @@
                                                         <rect key="frame" x="0.0" y="64.333333333333371" width="374" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -478,6 +481,9 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="addOfferTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="trg-Bl-Etb"/>
+                                                        </connections>
                                                     </button>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dts-h9-ZkF">
                                                         <rect key="frame" x="0.0" y="237" width="374" height="201"/>
@@ -564,6 +570,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="postSwapTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="6HK-m2-6bZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -613,6 +622,16 @@
                         <viewLayoutGuide key="safeArea" id="VJx-zw-gd1"/>
                     </view>
                     <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="cashOnTopTF" destination="Pkk-kJ-rt7" id="KMG-O8-vSK"/>
+                        <outlet property="cityTextField" destination="aCC-xx-eMu" id="EwN-Ec-Cb7"/>
+                        <outlet property="colorOfferedTF" destination="Kex-IR-GmI" id="hk9-nE-x5m"/>
+                        <outlet property="descriptionTextField" destination="aax-Uv-89o" id="L9m-ns-iy3"/>
+                        <outlet property="mapKitView" destination="HRB-LA-rFA" id="Fd4-M9-Q6c"/>
+                        <outlet property="phoneOfferedTF" destination="LkJ-2A-wNl" id="Tu4-4H-8GJ"/>
+                        <outlet property="titleTextField" destination="5Ap-O2-ela" id="B5r-bc-wyU"/>
+                        <outlet property="zipTextField" destination="1jC-Ap-3JM" id="78p-vR-aMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyz-Fx-qhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
