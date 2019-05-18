@@ -339,10 +339,17 @@
                                                         </view>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="ATH-rV-mfF" id="SVi-rf-JjS"/>
+                                                    <outlet property="delegate" destination="ATH-rV-mfF" id="MTY-id-dqY"/>
+                                                </connections>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlQ-S7-vjf">
-                                                <rect key="frame" x="161" y="178" width="92" height="30"/>
+                                                <rect key="frame" x="152" y="178" width="110" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.037429042760000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="Eg5-Eo-m0I"/>
+                                                </constraints>
                                                 <state key="normal" title="Add Image(s)">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -416,6 +423,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="2UG-wh-q8b"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="ATH-rV-mfF" id="MKw-mK-SB4"/>
+                                                </connections>
                                             </mapView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Xmj-mb-Ukd">
                                                 <rect key="frame" x="20" y="831" width="374" height="438"/>
@@ -476,15 +486,64 @@
                                                             <constraint firstAttribute="height" constant="201" id="ELb-v1-ZmY"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b3G-oD-Z5G">
-                                                                <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" rowHeight="98" id="b3G-oD-Z5G">
+                                                                <rect key="frame" x="0.0" y="28" width="374" height="98"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3G-oD-Z5G" id="44S-iQ-Ok8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="97.666666666666671"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKa-Gx-2KD">
+                                                                            <rect key="frame" x="20" y="9" width="80" height="80"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="80" id="vEz-Ck-QOE"/>
+                                                                                <constraint firstAttribute="width" constant="80" id="wyN-PP-Ijk"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                    <integer key="value" value="40"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-FC-Tew">
+                                                                            <rect key="frame" x="108" y="12.333333333333336" width="238" height="73.333333333333314"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone Xs Max" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-MK-MNo">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="238" height="24"/>
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-jH-I3u">
+                                                                                    <rect key="frame" x="0.0" y="30" width="238" height="20.333333333333329"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ll2-5w-9B0">
+                                                                                    <rect key="frame" x="0.0" y="56.333333333333343" width="238" height="17"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailingMargin" secondItem="HaE-FC-Tew" secondAttribute="trailing" constant="8" id="139-vE-zhU"/>
+                                                                        <constraint firstItem="HaE-FC-Tew" firstAttribute="centerY" secondItem="44S-iQ-Ok8" secondAttribute="centerY" id="96R-xG-NGj"/>
+                                                                        <constraint firstItem="AKa-Gx-2KD" firstAttribute="leading" secondItem="44S-iQ-Ok8" secondAttribute="leading" constant="20" id="FoA-zc-jJ5"/>
+                                                                        <constraint firstItem="AKa-Gx-2KD" firstAttribute="centerY" secondItem="44S-iQ-Ok8" secondAttribute="centerY" id="bcg-ls-psZ"/>
+                                                                        <constraint firstItem="HaE-FC-Tew" firstAttribute="leading" secondItem="AKa-Gx-2KD" secondAttribute="trailing" constant="8" id="lbI-qd-je7"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="ATH-rV-mfF" id="NOC-Vf-oWo"/>
+                                                            <outlet property="delegate" destination="ATH-rV-mfF" id="edo-hq-kPn"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <constraints>
