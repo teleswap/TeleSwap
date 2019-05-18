@@ -13,8 +13,9 @@ struct User: Codable {
     let id: Int
     var username: String
     var email: String
-    var imageUrl: String
-    var firstName: String
+    var imageUrl: String?
+    var firstName: String?
+    var lastName: String?
 }
 
 struct JWT: Codable {

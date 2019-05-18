@@ -24,6 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        APIController.shared.getAllListings { (listings, errorMessage) in
 //
 //        }
+//        APIController.shared.createUserListing(userId: 1, title: "Test", body: "Testing Something") { (errorMessage) in
+//
+//        }
+        
+//        APIController.shared.getUser(userId: 1) { (user, errorMessage) in
+//
+//        }
         return true
     }
 
