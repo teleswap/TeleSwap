@@ -647,6 +647,7 @@
                     <connections>
                         <outlet property="cashOnTopTF" destination="Pkk-kJ-rt7" id="KMG-O8-vSK"/>
                         <outlet property="cityTextField" destination="aCC-xx-eMu" id="EwN-Ec-Cb7"/>
+                        <outlet property="collectionView" destination="ERL-VZ-TDT" id="yBl-Yi-QGj"/>
                         <outlet property="colorOfferedTF" destination="Kex-IR-GmI" id="hk9-nE-x5m"/>
                         <outlet property="descriptionTextField" destination="aax-Uv-89o" id="L9m-ns-iy3"/>
                         <outlet property="mapKitView" destination="HRB-LA-rFA" id="Fd4-M9-Q6c"/>

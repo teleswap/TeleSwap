@@ -21,8 +21,9 @@ class PostViewController : UIViewController{
     @IBOutlet weak var colorOfferedTF: UITextField!
     @IBOutlet weak var cashOnTopTF: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    var locationManager = CLLocationManager()
     var offers : [Offer] = []
     var images: [UIImage] = []
     let picker = UIImagePickerController()
@@ -45,7 +46,18 @@ class PostViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker.delegate = self
+        mapKitView.delegate = self
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.locationManager.requestWhenInUseAuthorization()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -73,7 +85,7 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
 
 
 //Extension for image picker
-extension PostViewController: UIImagePickerControllerDelegate{
+extension PostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func loadPicker(){
         let photos = PHPhotoLibrary.authorizationStatus()
@@ -99,6 +111,7 @@ extension PostViewController: UIImagePickerControllerDelegate{
         let image : UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
         images.append(image)
         picker.dismiss(animated: true, completion: nil)
+        collectionView.reloadData()
     }
 }
 
@@ -123,3 +136,22 @@ extension PostViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 //extension for MapKit and getting user location
 
+extension PostViewController : CLLocationManagerDelegate, MKMapViewDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = manager.location?.coordinate else {return}
+        mapKitView.showsUserLocation = true
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 40000, longitudinalMeters: 40000)
+        mapKitView.region = region
+        mapKitView.addOverlay(MKCircle(center: location, radius: 15000))
+    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let circleOverLay = overlay as? MKCircle else {return MKOverlayRenderer()}
+        
+        let circleRenderer = MKCircleRenderer(circle: circleOverLay)
+        circleRenderer.strokeColor = .red
+        circleRenderer.fillColor = .red
+        circleRenderer.alpha = 0.2
+        return circleRenderer
+    }
+    
+}
