@@ -22,6 +22,9 @@ class PostViewController : UIViewController{
     @IBOutlet weak var cashOnTopTF: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var offers : [Offer] = []
+    var images: [UIImage] = []
     let picker = UIImagePickerController()
     var uploadedImage = UIImage()
     
@@ -31,7 +34,7 @@ class PostViewController : UIViewController{
     
     @IBAction func addOfferTapped(_ sender: Any) {
         let offer = Offer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Int(cashOnTopTF.text!)!)
-        Model.shared.offers.append(offer)
+        offers.append(offer)
         tableView.reloadData()
         
     }
@@ -54,15 +57,15 @@ class PostViewController : UIViewController{
 //Extension for table view
 extension PostViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Model.shared.offers.count
+        return offers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
-        cell.phoneNameLabel.text = Model.shared.offers[indexPath.row].title
-        cell.yearLabel.text = "\(Model.shared.offers[indexPath.row].year ?? 2006)"
-        cell.offerOnTop.text = "$\(Model.shared.offers[indexPath.row].offerOnTop)"
-        guard let safeData = Model.shared.offers[indexPath.row].imageData else {return cell}
+        cell.phoneNameLabel.text = offers[indexPath.row].title
+        cell.yearLabel.text = "\(offers[indexPath.row].year ?? 2006)"
+        cell.offerOnTop.text = "$\(offers[indexPath.row].offerOnTop)"
+        guard let safeData = offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
         return cell
     }
@@ -94,7 +97,29 @@ extension PostViewController: UIImagePickerControllerDelegate{
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image : UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
-        uploadedImage = image
+        images.append(image)
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+
+
+//extension for collection view
+
+extension PostViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionViewCell
+        cell.uploadedImage.image = images[indexPath.row]
+        return cell
+    }
+    
+    
+}
+
+
+//extension for MapKit and getting user location
+
