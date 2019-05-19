@@ -339,10 +339,17 @@
                                                         </view>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="ATH-rV-mfF" id="U26-Co-Tkg"/>
+                                                    <outlet property="delegate" destination="ATH-rV-mfF" id="Gc0-S8-eZk"/>
+                                                </connections>
                                             </collectionView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlQ-S7-vjf">
-                                                <rect key="frame" x="161" y="178" width="92" height="30"/>
+                                                <rect key="frame" x="152" y="178" width="110" height="30"/>
                                                 <color key="backgroundColor" red="1" green="0.037429042760000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="110" id="Eg5-Eo-m0I"/>
+                                                </constraints>
                                                 <state key="normal" title="Add Image(s)">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -352,6 +359,9 @@
                                                         <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="addImagesTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="nIT-0S-mUu"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="4ee-0d-ZvC">
                                                 <rect key="frame" x="20" y="458.66666666666663" width="374" height="94.333333333333371"/>
@@ -372,7 +382,7 @@
                                                         <rect key="frame" x="0.0" y="64.333333333333371" width="374" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -468,23 +478,86 @@
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="addOfferTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="trg-Bl-Etb"/>
+                                                        </connections>
                                                     </button>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dts-h9-ZkF">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dts-h9-ZkF">
                                                         <rect key="frame" x="0.0" y="237" width="374" height="201"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="201" id="ELb-v1-ZmY"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b3G-oD-Z5G">
-                                                                <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" id="b3G-oD-Z5G" customClass="PhoneTableViewCell" customModule="TeleSwap" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="374" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3G-oD-Z5G" id="44S-iQ-Ok8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="99.666666666666671"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AKa-Gx-2KD">
+                                                                            <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="80" id="vEz-Ck-QOE"/>
+                                                                                <constraint firstAttribute="width" constant="80" id="wyN-PP-Ijk"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                    <integer key="value" value="40"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="HaE-FC-Tew">
+                                                                            <rect key="frame" x="108" y="24.666666666666668" width="190" height="50.333333333333329"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iPhone Xs Max" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4J-MK-MNo">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="24"/>
+                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgW-jH-I3u">
+                                                                                    <rect key="frame" x="0.0" y="30" width="190" height="20.333333333333329"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvz-85-IZ4">
+                                                                            <rect key="frame" x="306" y="39.666666666666664" width="60" height="20.333333333333336"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="60" id="HjA-tf-W40"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <color key="textColor" red="0.077282055799999999" green="0.64862090380000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="wvz-85-IZ4" firstAttribute="leading" secondItem="HaE-FC-Tew" secondAttribute="trailing" priority="999" constant="8" id="3AI-Cw-k1P"/>
+                                                                        <constraint firstItem="HaE-FC-Tew" firstAttribute="centerY" secondItem="44S-iQ-Ok8" secondAttribute="centerY" id="96R-xG-NGj"/>
+                                                                        <constraint firstItem="AKa-Gx-2KD" firstAttribute="leading" secondItem="44S-iQ-Ok8" secondAttribute="leading" constant="20" id="FoA-zc-jJ5"/>
+                                                                        <constraint firstItem="AKa-Gx-2KD" firstAttribute="centerY" secondItem="44S-iQ-Ok8" secondAttribute="centerY" id="bcg-ls-psZ"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="wvz-85-IZ4" secondAttribute="trailing" constant="8" id="edW-ww-xYr"/>
+                                                                        <constraint firstItem="wvz-85-IZ4" firstAttribute="centerY" secondItem="44S-iQ-Ok8" secondAttribute="centerY" id="efv-xM-M5o"/>
+                                                                        <constraint firstItem="HaE-FC-Tew" firstAttribute="leading" secondItem="AKa-Gx-2KD" secondAttribute="trailing" constant="8" id="lbI-qd-je7"/>
+                                                                    </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="offerOnTop" destination="wvz-85-IZ4" id="1Hi-Xw-Ol0"/>
+                                                                    <outlet property="phoneImage" destination="AKa-Gx-2KD" id="Q6d-IV-H0p"/>
+                                                                    <outlet property="phoneNameLabel" destination="U4J-MK-MNo" id="Pkb-Si-E4m"/>
+                                                                    <outlet property="yearLabel" destination="PgW-jH-I3u" id="dB4-LL-GPB"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="ATH-rV-mfF" id="NOC-Vf-oWo"/>
+                                                            <outlet property="delegate" destination="ATH-rV-mfF" id="edo-hq-kPn"/>
+                                                        </connections>
                                                     </tableView>
                                                 </subviews>
                                                 <constraints>
@@ -505,6 +578,9 @@
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="postSwapTapped:" destination="ATH-rV-mfF" eventType="touchUpInside" id="6HK-m2-6bZ"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -554,6 +630,17 @@
                         <viewLayoutGuide key="safeArea" id="VJx-zw-gd1"/>
                     </view>
                     <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="cashOnTopTF" destination="Pkk-kJ-rt7" id="KMG-O8-vSK"/>
+                        <outlet property="cityTextField" destination="aCC-xx-eMu" id="EwN-Ec-Cb7"/>
+                        <outlet property="colorOfferedTF" destination="Kex-IR-GmI" id="hk9-nE-x5m"/>
+                        <outlet property="descriptionTextField" destination="aax-Uv-89o" id="L9m-ns-iy3"/>
+                        <outlet property="mapKitView" destination="HRB-LA-rFA" id="Fd4-M9-Q6c"/>
+                        <outlet property="phoneOfferedTF" destination="LkJ-2A-wNl" id="Tu4-4H-8GJ"/>
+                        <outlet property="tableView" destination="dts-h9-ZkF" id="EBz-PU-duM"/>
+                        <outlet property="titleTextField" destination="5Ap-O2-ela" id="B5r-bc-wyU"/>
+                        <outlet property="zipTextField" destination="1jC-Ap-3JM" id="78p-vR-aMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyz-Fx-qhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
