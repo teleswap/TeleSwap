@@ -57,7 +57,6 @@ class PostViewController : UIViewController{
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.locationManager.requestWhenInUseAuthorization()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
