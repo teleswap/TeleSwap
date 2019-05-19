@@ -20,6 +20,7 @@ class PostViewController : UIViewController{
     @IBOutlet weak var phoneOfferedTF: UITextField!
     @IBOutlet weak var colorOfferedTF: UITextField!
     @IBOutlet weak var cashOnTopTF: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     let picker = UIImagePickerController()
     var uploadedImage = UIImage()
@@ -31,6 +32,7 @@ class PostViewController : UIViewController{
     @IBAction func addOfferTapped(_ sender: Any) {
         let offer = Offer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Int(cashOnTopTF.text!)!)
         Model.shared.offers.append(offer)
+        tableView.reloadData()
         
     }
     
@@ -58,8 +60,8 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
         cell.phoneNameLabel.text = Model.shared.offers[indexPath.row].title
-        cell.descriptionLabel.text = Model.shared.offers[indexPath.row].description
         cell.yearLabel.text = "\(Model.shared.offers[indexPath.row].year ?? 2006)"
+        cell.offerOnTop.text = "$\(Model.shared.offers[indexPath.row].offerOnTop)"
         guard let safeData = Model.shared.offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
         return cell

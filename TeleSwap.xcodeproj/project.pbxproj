@@ -139,18 +139,16 @@
 				E71ED0302290DE43005879D6 /* Custom Cell */,
 				E720A41F2276B16700184085 /* FilterViewController.swift */,
 				E72B4AE522749BD300700577 /* Profile.swift */,
-				E71ED02C2290A5B9005879D6 /* Model.swift */,
+				E71ED0322290E2C1005879D6 /* Model */,
 				E70ADB85227178A2002B6193 /* Assets.xcassets */,
 				E70ADB8A227178A2002B6193 /* Info.plist */,
 				A119A2382287DDE2004D855C /* APIController.swift */,
-				A119A23A2287DE83004D855C /* User.swift */,
+				E71ED0312290E2B3005879D6 /* Objects */,
 				A12F0C03228BD48600D6F555 /* ErrorMessage.swift */,
 				A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */,
 				A12F0C07228BD59100D6F555 /* UserDefaults+extension.swift */,
 				E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */,
 				A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */,
-				A1C166142290265C008ECBA0 /* Listing.swift */,
-				A1C1661622902A12008ECBA0 /* Offer.swift */,
 			);
 			path = TeleSwap;
 			sourceTree = "<group>";
@@ -161,6 +159,24 @@
 				E71ED02E2290DE27005879D6 /* PhoneTableViewCell.swift */,
 			);
 			path = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		E71ED0312290E2B3005879D6 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A119A23A2287DE83004D855C /* User.swift */,
+				A1C166142290265C008ECBA0 /* Listing.swift */,
+				A1C1661622902A12008ECBA0 /* Offer.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		E71ED0322290E2C1005879D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E71ED02C2290A5B9005879D6 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E7A8B62E228DC3FE001D0814 /* Storyboard */ = {

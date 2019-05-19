@@ -13,7 +13,6 @@ struct Offer: Codable {
     var id: String
     var title: String
     var year: Int?
-    var description: String?
     var color : String
     var imageData: Data?
     var offerOnTop : Int
