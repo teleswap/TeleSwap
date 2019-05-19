@@ -492,7 +492,7 @@
                                                             <constraint firstAttribute="height" constant="201" id="ELb-v1-ZmY"/>
                                                         </constraints>
                                                         <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" rowHeight="98" id="b3G-oD-Z5G">
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhoneCell" rowHeight="98" id="b3G-oD-Z5G" customClass="PhoneTableViewCell" customModule="TeleSwap" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="28" width="374" height="98"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b3G-oD-Z5G" id="44S-iQ-Ok8">
@@ -544,6 +544,12 @@
                                                                         <constraint firstItem="HaE-FC-Tew" firstAttribute="leading" secondItem="AKa-Gx-2KD" secondAttribute="trailing" constant="8" id="lbI-qd-je7"/>
                                                                     </constraints>
                                                                 </tableViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="descriptionLabel" destination="ll2-5w-9B0" id="2Fp-WL-pqK"/>
+                                                                    <outlet property="phoneImage" destination="AKa-Gx-2KD" id="Q6d-IV-H0p"/>
+                                                                    <outlet property="phoneNameLabel" destination="U4J-MK-MNo" id="Pkb-Si-E4m"/>
+                                                                    <outlet property="yearLabel" destination="PgW-jH-I3u" id="dB4-LL-GPB"/>
+                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                         <connections>

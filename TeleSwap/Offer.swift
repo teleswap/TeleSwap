@@ -15,6 +15,7 @@ struct Offer: Codable {
     var year: Int?
     var description: String?
     var color : String
+    var imageData: Data?
     var offerOnTop : Int
     var imageUrl: String?
     init(title: String, color: String, offerOnTop: Int){
