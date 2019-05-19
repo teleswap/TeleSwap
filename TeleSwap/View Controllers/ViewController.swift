@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController {
     @IBOutlet weak var logoMiddleConstraint: NSLayoutConstraint!
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var logoImageview: UIImageView!
+    
+    let locationManager = CLLocationManager()
     var logoCenter : CGPoint?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +41,13 @@ class ViewController: UIViewController {
                 self.buttonStackView.alpha = 1
             })
         }, completion: nil)
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { (_) in
+                
+            }
+        }
+        self.locationManager.requestWhenInUseAuthorization()
     }
 }
 
