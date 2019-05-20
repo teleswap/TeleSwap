@@ -18,4 +18,12 @@ extension UserDefaults {
     var token: String? {
         return string(forKey: UserDefaultsKeys.token.rawValue)
     }
+    
+    var longitude: String? {
+        return string(forKey: UserDefaultsKeys.longitude.rawValue)
+    }
+    
+    var latitude: String? {
+        return string(forKey: UserDefaultsKeys.latitude.rawValue)
+    }
 }

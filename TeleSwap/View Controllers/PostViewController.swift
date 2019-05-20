@@ -24,7 +24,7 @@ class PostViewController : UIViewController{
     @IBOutlet weak var collectionView: UICollectionView!
     
     var locationManager = CLLocationManager()
-    var offers : [Offer] = []
+    var offers : [AcceptableOffer] = []
     var images: [UIImage] = []
     let picker = UIImagePickerController()
     var uploadedImage = UIImage()
@@ -34,8 +34,8 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func addOfferTapped(_ sender: Any) {
-        let offer = Offer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Int(cashOnTopTF.text!)!)
-        offers.append(offer)
+//        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Double(cashOnTopTF.text!)!)
+        //offers.append(offer)
         tableView.reloadData()
         
     }
