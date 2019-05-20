@@ -372,7 +372,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Vpi-Te-WF0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" id="TDS-as-EBR"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="MessagesIcon" id="TDS-as-EBR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bve-yb-H8k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -737,7 +737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Ci-pI-n11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4671.0144927536239" y="-115.84821428571428"/>
+            <point key="canvasLocation" x="5423" y="-115"/>
         </scene>
         <!--Counter Offer-->
         <scene sceneID="lGx-ym-Mlk">
@@ -908,7 +908,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mk-63-qcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5424.6376811594209" y="-115.17857142857142"/>
+            <point key="canvasLocation" x="6177" y="-115"/>
         </scene>
         <!--New Listing-->
         <scene sceneID="Soz-cc-vT4">
@@ -1265,7 +1265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyz-Fx-qhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4678" y="-965"/>
+            <point key="canvasLocation" x="5423" y="-991"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="V96-yW-WKV">
@@ -1306,7 +1306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jxx-a4-BMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4677" y="625"/>
+            <point key="canvasLocation" x="5425" y="597"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="God-A3-GAu">
@@ -1330,6 +1330,7 @@
     <resources>
         <image name="Filter" width="50" height="50"/>
         <image name="HomeIcon" width="30" height="30"/>
+        <image name="MessagesIcon" width="30" height="30"/>
         <image name="MoreIcon" width="30" height="30"/>
         <image name="TeleSwapLogo" width="932" height="494"/>
     </resources>
