@@ -25,6 +25,7 @@
 		E70ADB91227215FD002B6193 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB90227215FD002B6193 /* LoginViewController.swift */; };
 		E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB9222722679002B6193 /* HomeViewController.swift */; };
 		E71A3FC7228D3BBF00B60416 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */; };
+		E71E4B5B22930D6D005808FF /* CounterOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71E4B5A22930D6D005808FF /* CounterOffer.swift */; };
 		E71ED02D2290A5B9005879D6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71ED02C2290A5B9005879D6 /* Model.swift */; };
 		E71ED02F2290DE27005879D6 /* PhoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71ED02E2290DE27005879D6 /* PhoneTableViewCell.swift */; };
 		E720A4202276B16700184085 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E720A41F2276B16700184085 /* FilterViewController.swift */; };
@@ -73,6 +74,7 @@
 		E70ADB90227215FD002B6193 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E70ADB9222722679002B6193 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E71E4B5A22930D6D005808FF /* CounterOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterOffer.swift; sourceTree = "<group>"; };
 		E71ED02C2290A5B9005879D6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		E71ED02E2290DE27005879D6 /* PhoneTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneTableViewCell.swift; sourceTree = "<group>"; };
 		E720A41F2276B16700184085 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				A119A23A2287DE83004D855C /* User.swift */,
+				E71E4B5A22930D6D005808FF /* CounterOffer.swift */,
 				A1C166142290265C008ECBA0 /* Listing.swift */,
 				A1C1661622902A12008ECBA0 /* Offer.swift */,
 			);
@@ -374,6 +377,7 @@
 				A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */,
 				E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */,
 				E721FB832291C4150052543F /* ImageCollectionViewCell.swift in Sources */,
+				E71E4B5B22930D6D005808FF /* CounterOffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

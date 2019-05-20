@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Offer: Codable {
-    var id: String
+    var id: UUID
     var title: String
     var year: Int?
     var color : String
@@ -18,7 +18,7 @@ struct Offer: Codable {
     var offerOnTop : Int
     var imageUrl: String?
     init(title: String, color: String, offerOnTop: Int){
-        self.id = UUID().uuidString
+        self.id = UUID()
         self.title = title
         self.color = color
         self.offerOnTop = offerOnTop

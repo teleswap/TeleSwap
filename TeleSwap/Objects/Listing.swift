@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Listing: Codable {
-    var id: Int?
+    var id: UUID
     var title: String?
     var body: String?
     var imageUrl: String?

@@ -41,7 +41,7 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func postSwapTapped(_ sender: Any) {
-        
+        let listing = Listing(id: UUID(), title: titleTextField.text!, body: descriptionTextField.text!, imageUrl: nil, zipCode: Int(zipTextField.text!), city: cityTextField.text!, longitude: nil, latitude: nil)
     }
     
     override func viewDidLoad() {
