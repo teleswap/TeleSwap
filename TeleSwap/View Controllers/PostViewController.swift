@@ -41,7 +41,9 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func postSwapTapped(_ sender: Any) {
+        APIController.shared.createUserListing(userId: APIController.shared.currentUser!.id, title: titleTextField.text!, body: descriptionTextField.text!, city: cityTextField.text!, zipCode: Int(zipTextField.text!)!, images: self.images) { (listing, errorMessage) in
         
+        }
     }
     
     override func viewDidLoad() {

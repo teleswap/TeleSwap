@@ -171,7 +171,7 @@ class APIController {
     }
     
     //Get All Listings
-    func getAllListings(completion: @escaping ([Listing]?, ErrorMessage?) -> Void) {
+    func getAllListings(completion: @escaping ([Listing]?, ErrorMessage?) -> Void = {_,_ in}) {
         let url = baseUrl.appendingPathComponent("listings")
         
         var request = URLRequest(url: url)
@@ -209,8 +209,9 @@ class APIController {
             }
             
             do {
-                let responses = try JSONDecoder().decode([Listing].self, from: data)
-                completion(responses, nil)
+                let listings = try JSONDecoder().decode([Listing].self, from: data)
+                self.listings = listings
+                completion(listings, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
                 return
@@ -223,7 +224,7 @@ class APIController {
     }
     
     //Create User Listing
-    func createUserListing(userId: Int, title: String, body: String, completion: @escaping (ErrorMessage?) -> Void) {
+    func createUserListing(userId: Int, title: String, body: String, city: String, zipCode: Int, images: [UIImage], completion: @escaping (Listing?, ErrorMessage?) -> Void) {
         let url = baseUrl.appendingPathComponent("users")
             .appendingPathComponent("\(userId)")
             .appendingPathComponent("listings")
@@ -231,15 +232,15 @@ class APIController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = HTTPMethod.post.rawValue
         
-        //We'll probably add more but this is just to start off testing and stuff
-        let params = ["title": title, "body": body] as [String: Any]
+
+        let params = ["title": title, "body": body, "city": city, "zipCode": zipCode] as [String: Any]
         
-//        guard let token = UserDefaults.standard.token else {
-//            NSLog("No JWT Token Set to User Defaults")
-//            return
-//        }
-//
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+
+        request.setValue(token, forHTTPHeaderField: "Authorization")
         
         do {
             let json = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
@@ -264,7 +265,7 @@ class APIController {
                 NSLog("Error code from the http request: \(httpResponse.statusCode)")
                 do {
                     let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
-                    completion(errorMessage)
+                    completion(nil, errorMessage)
                 } catch {
                     NSLog("Error decoding ErrorMessage(createUserListing) \(error)")
                     return
@@ -272,8 +273,22 @@ class APIController {
                 return
             }
             
-            NSLog("Manager successfully created user listing")
-            completion(nil)
+            do {
+                let listing = try JSONDecoder().decode(Listing.self, from: data)
+                self.listing = listing
+                for image in images {
+                    self.uploadImage(imageData: image.pngData()!, type: ModelKeys.listing, model: self.listing!, completion: { (errorMessage) in
+                        completion(listing, nil)
+                    })
+                }
+
+            } catch {
+                NSLog("Error with network request: \(error)")
+                return
+            }
+            
+            NSLog("User successfully created user listing")
+            completion(nil, nil)
             
             }.resume()
     }
@@ -360,6 +375,7 @@ class APIController {
     
     var currentUser: User?
     var listings: [Listing] = []
-    //let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
-    let baseUrl = URL(string: "http://localhost:3000/api")!
+    var listing: Listing?
+    let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
+    //let baseUrl = URL(string: "http://localhost:3000/api")!
 }

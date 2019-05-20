@@ -16,6 +16,7 @@ struct Listing: Codable {
     var imageUrl: String?
     var zipCode: Int?
     var city: String?
+    var images: [Image]?
     var longitude: Double?
     var latitude: Double?
 }
