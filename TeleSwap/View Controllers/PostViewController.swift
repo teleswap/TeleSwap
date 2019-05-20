@@ -23,8 +23,8 @@ class PostViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var locationManager = CLLocationManager()
-    var offers : [Offer] = []
+    var locationHelper = LocationHelper()
+    var offers : [AcceptableOffer] = []
     var images: [UIImage] = []
     let picker = UIImagePickerController()
     var uploadedImage = UIImage()
@@ -34,24 +34,28 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func addOfferTapped(_ sender: Any) {
-        let offer = Offer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Int(cashOnTopTF.text!)!)
-        offers.append(offer)
+//        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Double(cashOnTopTF.text!)!)
+        //offers.append(offer)
         tableView.reloadData()
         
     }
     
     @IBAction func postSwapTapped(_ sender: Any) {
+        APIController.shared.createUserListing(userId: APIController.shared.currentUser!.id, title: titleTextField.text!, body: descriptionTextField.text!, city: cityTextField.text!, zipCode: Int(zipTextField.text!)!, images: self.images) { (listing, errorMessage) in
         
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityTextField.text = UserDefaults.standard.city
+        zipTextField.text = UserDefaults.standard.zipCode
         picker.delegate = self
         mapKitView.delegate = self
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationHelper.locationManager.delegate = self
+            locationHelper.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationHelper.locationManager.startUpdatingLocation()
         }
         
     }

@@ -14,17 +14,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var logoImageview: UIImageView!
     
-    let locationManager = CLLocationManager()
+    let locationHelper = LocationHelper()
     var logoCenter : CGPoint?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         logoCenter = logoImageview.center
         logoMiddleConstraint.constant = 0
         
         self.navigationController?.isNavigationBarHidden = true
+        
+        APIController.shared.logIn(email: "moin@moin.com", password: "123456") { (errorMessage) in
+            APIController.shared.getUser(userId: 1)
+        }
+        let image = UIImage(named: "TeleSwapLogo")
+        let data = image?.pngData()
+//        APIController.shared.getAllListings { (listings, errorMessage) in
+//            APIController.shared.uploadImage(imageData: data!, type: ModelKeys.listing, model: (listings?.first!)!) { (errorMessage) in
+//
+//            }
+//        }
+
     }
     
     
@@ -47,7 +58,8 @@ class ViewController: UIViewController {
                 
             }
         }
-        self.locationManager.requestWhenInUseAuthorization()
+        locationHelper.locationManager.requestWhenInUseAuthorization()
+        locationHelper.saveLocation()
     }
 }
 

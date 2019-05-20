@@ -6,7 +6,7 @@
 //  Copyright © 2019 Cameron Dunn. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import JWTDecode
 
 class APIController {
@@ -114,7 +114,7 @@ class APIController {
     }
     
     //Get User through userId
-    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void) {
+    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void = { _,_  in }) {
         let url = baseUrl.appendingPathComponent("users")
             .appendingPathComponent("\(userId)")
         
@@ -122,13 +122,13 @@ class APIController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = HTTPMethod.get.rawValue
         
-//        guard let token = UserDefaults.standard.token else {
-//            NSLog("No JWT Token Set to User Defaults")
-//            return
-//        }
-//
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
-//
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -156,6 +156,7 @@ class APIController {
             
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
+                self.currentUser = user
                 completion(user, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
@@ -170,7 +171,7 @@ class APIController {
     }
     
     //Get All Listings
-    func getAllListings(completion: @escaping ([Listing]?, ErrorMessage?) -> Void) {
+    func getAllListings(completion: @escaping ([Listing]?, ErrorMessage?) -> Void = {_,_ in}) {
         let url = baseUrl.appendingPathComponent("listings")
         
         var request = URLRequest(url: url)
@@ -208,8 +209,9 @@ class APIController {
             }
             
             do {
-                let responses = try JSONDecoder().decode([Listing].self, from: data)
-                completion(responses, nil)
+                let listings = try JSONDecoder().decode([Listing].self, from: data)
+                self.listings = listings
+                completion(listings, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
                 return
@@ -222,7 +224,7 @@ class APIController {
     }
     
     //Create User Listing
-    func createUserListing(userId: Int, title: String, body: String, completion: @escaping (ErrorMessage?) -> Void) {
+    func createUserListing(userId: Int, title: String, body: String, city: String, zipCode: Int, images: [UIImage], completion: @escaping (Listing?, ErrorMessage?) -> Void) {
         let url = baseUrl.appendingPathComponent("users")
             .appendingPathComponent("\(userId)")
             .appendingPathComponent("listings")
@@ -230,15 +232,15 @@ class APIController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = HTTPMethod.post.rawValue
         
-        //We'll probably add more but this is just to start off testing and stuff
-        let params = ["title": title, "body": body] as [String: Any]
+
+        let params = ["title": title, "body": body, "city": city, "zipCode": zipCode] as [String: Any]
         
-//        guard let token = UserDefaults.standard.token else {
-//            NSLog("No JWT Token Set to User Defaults")
-//            return
-//        }
-//
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+
+        request.setValue(token, forHTTPHeaderField: "Authorization")
         
         do {
             let json = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
@@ -263,7 +265,7 @@ class APIController {
                 NSLog("Error code from the http request: \(httpResponse.statusCode)")
                 do {
                     let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
-                    completion(errorMessage)
+                    completion(nil, errorMessage)
                 } catch {
                     NSLog("Error decoding ErrorMessage(createUserListing) \(error)")
                     return
@@ -271,10 +273,76 @@ class APIController {
                 return
             }
             
-            NSLog("Manager successfully created user listing")
-            completion(nil)
+            do {
+                let listing = try JSONDecoder().decode(Listing.self, from: data)
+                self.listing = listing
+                for image in images {
+                    self.uploadImage(imageData: image.pngData()!, type: ModelKeys.listing, model: self.listing!, completion: { (errorMessage) in
+                        completion(listing, nil)
+                    })
+                }
+
+            } catch {
+                NSLog("Error with network request: \(error)")
+                return
+            }
+            
+            NSLog("User successfully created user listing")
+            completion(nil, nil)
             
             }.resume()
+    }
+    
+    func uploadImage(imageData: Data, type: ModelKeys, model: Listing, completion: @escaping (ErrorMessage?) -> Void) {
+        let encodedImageData = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        let url = baseUrl.appendingPathComponent("images")
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.post.rawValue
+        
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+
+        
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        //let postString = "image=\(encodedImageData)"
+        let params = ["\(type.rawValue)Id": model.id, "image": encodedImageData] as [String: Any]
+        //request.httpBody = postString.data(using: .utf8)
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            request.httpBody = json
+        } catch {
+            NSLog("Error encoding JSON")
+            return
+        }
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                NSLog("There was an error sending image data to server: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Error retrieving data from server(updateProfileImage)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                NSLog("Error code from the http request: \(httpResponse.statusCode)")
+                do {
+                    let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+                    completion(errorMessage)
+                } catch {
+                    NSLog("Error decoding ErrorMessage(updateProfileImage) \(error)")
+                    return
+                }
+                return
+            }
+            NSLog("Successfully Changed Profile Picture")
+            completion(nil)
+        }
+        task.resume()
     }
     
     
@@ -286,7 +354,28 @@ class APIController {
         UserDefaults.standard.set(userId, forKey: UserDefaultsKeys.userId.rawValue)
     }
     
+    //Get Image
+    func getImage(url: URL, completion: @escaping (UIImage?, Error?) -> Void = {_,_ in}) {
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            if let error = error {
+                NSLog("Error \(error)")
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, error)
+                return
+            }
+            let image = UIImage(data: data)
+            completion(image, error);
+            }.resume()
+    }
     
+    var currentUser: User?
+    var listings: [Listing] = []
+    var listing: Listing?
     let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
     //let baseUrl = URL(string: "http://localhost:3000/api")!
 }
