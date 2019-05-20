@@ -15,7 +15,7 @@ struct AcceptableOffer: Codable {
     var year: Int?
     var color : String
     var imageData: Data?
-    var offerOnTop : Int
+    var offerOnTop : Int?
     var imageUrl: String?
 //    init(title: String, color: String, offerOnTop: Int){
 //        self.id = UUID().uuidString

@@ -18,6 +18,8 @@
 		A1C166152290265C008ECBA0 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C166142290265C008ECBA0 /* Listing.swift */; };
 		A1C1661722902A12008ECBA0 /* AcceptableOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661622902A12008ECBA0 /* AcceptableOffer.swift */; };
 		A1C1661B229269AD008ECBA0 /* CounterOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661A229269AD008ECBA0 /* CounterOffer.swift */; };
+		A1C1661D22927156008ECBA0 /* ReversedGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661C22927156008ECBA0 /* ReversedGeoLocation.swift */; };
+		A1C16620229271B3008ECBA0 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661F229271B3008ECBA0 /* LocationHelper.swift */; };
 		E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB7E227178A0002B6193 /* AppDelegate.swift */; };
 		E70ADB81227178A0002B6193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB80227178A0002B6193 /* ViewController.swift */; };
 		E70ADB84227178A0002B6193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70ADB82227178A0002B6193 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		A1C166142290265C008ECBA0 /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		A1C1661622902A12008ECBA0 /* AcceptableOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptableOffer.swift; sourceTree = "<group>"; };
 		A1C1661A229269AD008ECBA0 /* CounterOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterOffer.swift; sourceTree = "<group>"; };
+		A1C1661C22927156008ECBA0 /* ReversedGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedGeoLocation.swift; sourceTree = "<group>"; };
+		A1C1661F229271B3008ECBA0 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		A6C40D1042229B4FA04C864F /* Pods-TeleSwap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeleSwap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap.debug.xcconfig"; sourceTree = "<group>"; };
 		D910A5C2D11DE3787BF4CD5D /* Pods_TeleSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeleSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70ADB7B227178A0002B6193 /* TeleSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeleSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +136,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		A1C1661E229271A5008ECBA0 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A1C1661F229271B3008ECBA0 /* LocationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		E70ADB72227178A0002B6193 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +166,7 @@
 		E70ADB7D227178A0002B6193 /* TeleSwap */ = {
 			isa = PBXGroup;
 			children = (
+				A1C1661E229271A5008ECBA0 /* Helpers */,
 				A1C1661922924C85008ECBA0 /* Enums */,
 				A1C1661822924C6B008ECBA0 /* Extensions */,
 				E7A8B62F228DC40D001D0814 /* View Controllers */,
@@ -197,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				E71ED02C2290A5B9005879D6 /* Model.swift */,
+				A1C1661C22927156008ECBA0 /* ReversedGeoLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,10 +400,12 @@
 				A1C1661722902A12008ECBA0 /* AcceptableOffer.swift in Sources */,
 				A119A23B2287DE83004D855C /* User.swift in Sources */,
 				E71ED02D2290A5B9005879D6 /* Model.swift in Sources */,
+				A1C16620229271B3008ECBA0 /* LocationHelper.swift in Sources */,
 				E70ADB81227178A0002B6193 /* ViewController.swift in Sources */,
 				A12F0C0A228BD5D100D6F555 /* UserDefaultKeys.swift in Sources */,
 				E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */,
 				E7A8B634228DC65F001D0814 /* ListingsViewController.swift in Sources */,
+				A1C1661D22927156008ECBA0 /* ReversedGeoLocation.swift in Sources */,
 				A12F0C06228BD4B200D6F555 /* HTTPMethod.swift in Sources */,
 				E70ADB9322722679002B6193 /* HomeViewController.swift in Sources */,
 				E721FB832291C4150052543F /* ImageCollectionViewCell.swift in Sources */,

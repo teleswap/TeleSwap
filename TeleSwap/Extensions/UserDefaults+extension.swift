@@ -26,4 +26,17 @@ extension UserDefaults {
     var latitude: String? {
         return string(forKey: UserDefaultsKeys.latitude.rawValue)
     }
+    
+    var city: String? {
+        return string(forKey: UserDefaultsKeys.city.rawValue)
+    }
+    
+    var state: String? {
+        return string(forKey: UserDefaultsKeys.state.rawValue)
+    }
+    
+    var zipCode: String? {
+        return string(forKey: UserDefaultsKeys.zipCode.rawValue)
+    }
+    
 }

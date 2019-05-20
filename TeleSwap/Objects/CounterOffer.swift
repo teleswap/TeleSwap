@@ -15,6 +15,6 @@ struct CounterOffer: Codable {
     var year: Int?
     var color : String
     var imageData: Data?
-    var offerOnTop : Int
+    var offerOnTop : Int?
     var imageUrl: String?
 }

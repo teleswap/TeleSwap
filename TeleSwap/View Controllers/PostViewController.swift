@@ -23,7 +23,7 @@ class PostViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var locationManager = CLLocationManager()
+    var locationHelper = LocationHelper()
     var offers : [AcceptableOffer] = []
     var images: [UIImage] = []
     let picker = UIImagePickerController()
@@ -49,9 +49,9 @@ class PostViewController : UIViewController{
         picker.delegate = self
         mapKitView.delegate = self
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationHelper.locationManager.delegate = self
+            locationHelper.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationHelper.locationManager.startUpdatingLocation()
         }
         
     }

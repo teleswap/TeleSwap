@@ -14,4 +14,7 @@ enum UserDefaultsKeys: String {
     case token
     case longitude
     case latitude
+    case city
+    case state
+    case zipCode
 }

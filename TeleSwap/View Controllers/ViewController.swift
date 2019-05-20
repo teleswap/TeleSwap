@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonStackView: UIStackView!
     @IBOutlet weak var logoImageview: UIImageView!
     
-    let locationManager = CLLocationManager()
+    let locationHelper = LocationHelper()
     var logoCenter : CGPoint?
     
     
@@ -47,7 +47,8 @@ class ViewController: UIViewController {
                 
             }
         }
-        self.locationManager.requestWhenInUseAuthorization()
+        locationHelper.locationManager.requestWhenInUseAuthorization()
+        locationHelper.saveLocation()
     }
 }
 
