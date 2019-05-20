@@ -114,7 +114,7 @@ class APIController {
     }
     
     //Get User through userId
-    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void) {
+    func getUser(userId: Int, completion: @escaping (User?, ErrorMessage?) -> Void = { _,_  in }) {
         let url = baseUrl.appendingPathComponent("users")
             .appendingPathComponent("\(userId)")
         
@@ -122,13 +122,13 @@ class APIController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = HTTPMethod.get.rawValue
         
-//        guard let token = UserDefaults.standard.token else {
-//            NSLog("No JWT Token Set to User Defaults")
-//            return
-//        }
-//
-//        request.setValue(token, forHTTPHeaderField: "Authorization")
-//
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -156,6 +156,7 @@ class APIController {
             
             do {
                 let user = try JSONDecoder().decode(User.self, from: data)
+                self.currentUser = user
                 completion(user, nil)
             } catch {
                 NSLog("Error with network request: \(error)")
@@ -277,20 +278,30 @@ class APIController {
             }.resume()
     }
     
-    func uploadProfilePicture(imageData: Data, completion: @escaping (ErrorMessage?) -> Void) {
+    func uploadImage(imageData: Data, type: ModelKeys, model: Listing, completion: @escaping (ErrorMessage?) -> Void) {
         let encodedImageData = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        let url = baseUrl.appendingPathComponent("upload")
+        let url = baseUrl.appendingPathComponent("images")
         var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = HTTPMethod.post.rawValue
         
         guard let token = UserDefaults.standard.token else {
             NSLog("No JWT Token Set to User Defaults")
             return
         }
+
         
         request.setValue(token, forHTTPHeaderField: "Authorization")
-        let postString = "image=\(encodedImageData)"
-        request.httpBody = postString.data(using: .utf8)
+        //let postString = "image=\(encodedImageData)"
+        let params = ["\(type.rawValue)Id": model.id, "image": encodedImageData] as [String: Any]
+        //request.httpBody = postString.data(using: .utf8)
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            request.httpBody = json
+        } catch {
+            NSLog("Error encoding JSON")
+            return
+        }
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 NSLog("There was an error sending image data to server: \(error)")

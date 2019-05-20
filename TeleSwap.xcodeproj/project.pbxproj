@@ -20,6 +20,7 @@
 		A1C1661B229269AD008ECBA0 /* CounterOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661A229269AD008ECBA0 /* CounterOffer.swift */; };
 		A1C1661D22927156008ECBA0 /* ReversedGeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661C22927156008ECBA0 /* ReversedGeoLocation.swift */; };
 		A1C16620229271B3008ECBA0 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1661F229271B3008ECBA0 /* LocationHelper.swift */; };
+		A1C1662222928865008ECBA0 /* ModelKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1662122928865008ECBA0 /* ModelKeys.swift */; };
 		E70ADB7F227178A0002B6193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB7E227178A0002B6193 /* AppDelegate.swift */; };
 		E70ADB81227178A0002B6193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70ADB80227178A0002B6193 /* ViewController.swift */; };
 		E70ADB84227178A0002B6193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70ADB82227178A0002B6193 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		A1C1661A229269AD008ECBA0 /* CounterOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterOffer.swift; sourceTree = "<group>"; };
 		A1C1661C22927156008ECBA0 /* ReversedGeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedGeoLocation.swift; sourceTree = "<group>"; };
 		A1C1661F229271B3008ECBA0 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
+		A1C1662122928865008ECBA0 /* ModelKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelKeys.swift; sourceTree = "<group>"; };
 		A6C40D1042229B4FA04C864F /* Pods-TeleSwap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeleSwap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TeleSwap/Pods-TeleSwap.debug.xcconfig"; sourceTree = "<group>"; };
 		D910A5C2D11DE3787BF4CD5D /* Pods_TeleSwap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeleSwap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70ADB7B227178A0002B6193 /* TeleSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeleSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			children = (
 				A12F0C09228BD5D100D6F555 /* UserDefaultKeys.swift */,
 				A12F0C05228BD4B200D6F555 /* HTTPMethod.swift */,
+				A1C1662122928865008ECBA0 /* ModelKeys.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 		E70ADB7D227178A0002B6193 /* TeleSwap */ = {
 			isa = PBXGroup;
 			children = (
+				A119A2382287DDE2004D855C /* APIController.swift */,
 				A1C1661E229271A5008ECBA0 /* Helpers */,
 				A1C1661922924C85008ECBA0 /* Enums */,
 				A1C1661822924C6B008ECBA0 /* Extensions */,
@@ -178,7 +182,6 @@
 				E71ED0322290E2C1005879D6 /* Model */,
 				E70ADB85227178A2002B6193 /* Assets.xcassets */,
 				E70ADB8A227178A2002B6193 /* Info.plist */,
-				A119A2382287DDE2004D855C /* APIController.swift */,
 				E71ED0312290E2B3005879D6 /* Objects */,
 				E71A3FC6228D3BBF00B60416 /* GoogleService-Info.plist */,
 			);
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A119A2392287DDE2004D855C /* APIController.swift in Sources */,
+				A1C1662222928865008ECBA0 /* ModelKeys.swift in Sources */,
 				E720A4202276B16700184085 /* FilterViewController.swift in Sources */,
 				E70ADB91227215FD002B6193 /* LoginViewController.swift in Sources */,
 				E7A8B632228DC5C1001D0814 /* PostViewController.swift in Sources */,

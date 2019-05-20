@@ -46,6 +46,8 @@ class PostViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityTextField.text = UserDefaults.standard.city
+        zipTextField.text = UserDefaults.standard.zipCode
         picker.delegate = self
         mapKitView.delegate = self
         if CLLocationManager.locationServicesEnabled() {
