@@ -34,8 +34,8 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func addOfferTapped(_ sender: Any) {
-//        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Double(cashOnTopTF.text!)!)
-        //offers.append(offer)
+        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Double(cashOnTopTF.text!)!)
+        offers.append(offer)
         tableView.reloadData()
         
     }
