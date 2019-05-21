@@ -26,10 +26,8 @@ class ViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         APIController.shared.logIn(email: "moin@moin.com", password: "123456") { (errorMessage) in
-            APIController.shared.getUser(userId: 1)
+            APIController.shared.getUser(userId: UserDefaults.standard.userId)
         }
-        let image = UIImage(named: "TeleSwapLogo")
-        let data = image?.pngData()
 //        APIController.shared.getAllListings { (listings, errorMessage) in
 //            APIController.shared.uploadImage(imageData: data!, type: ModelKeys.listing, model: (listings?.first!)!) { (errorMessage) in
 //

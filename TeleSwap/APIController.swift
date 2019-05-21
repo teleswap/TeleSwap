@@ -432,6 +432,6 @@ class APIController {
     var currentUser: User?
     var listings: [Listing] = []
     var listing: Listing?
-    //let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
-    let baseUrl = URL(string: "http://localhost:3000/api")!
+    let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
+//    let baseUrl = URL(string: "http://localhost:3000/api")!
 }

@@ -78,7 +78,6 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
         cell.phoneNameLabel.text = offers[indexPath.row].title
-        cell.yearLabel.text = "\(offers[indexPath.row].year ?? 2006)"
         cell.offerOnTop.text = "$\(offers[indexPath.row].cashOnTop)"
         guard let safeData = offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
@@ -146,6 +145,7 @@ extension PostViewController : CLLocationManagerDelegate, MKMapViewDelegate{
         let region = MKCoordinateRegion(center: location, latitudinalMeters: 40000, longitudinalMeters: 40000)
         mapKitView.region = region
         mapKitView.addOverlay(MKCircle(center: location, radius: 15000))
+        getArea(location: locations[0])
     }
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let circleOverLay = overlay as? MKCircle else {return MKOverlayRenderer()}
@@ -155,6 +155,18 @@ extension PostViewController : CLLocationManagerDelegate, MKMapViewDelegate{
         circleRenderer.fillColor = .red
         circleRenderer.alpha = 0.2
         return circleRenderer
+    }
+    func getArea(location: CLLocation){
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(location) { (placemarks, error) -> Void in
+            guard let placemark = placemarks?.first else {return}
+            if let placemarkCity = placemark.locality{
+                self.cityTextField.text = placemarkCity
+            }
+            if let placemarkZip = placemark.postalCode{
+                self.zipTextField.text = placemarkZip
+            }
+        }
     }
     
 }
