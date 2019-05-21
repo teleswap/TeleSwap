@@ -12,4 +12,9 @@ import Foundation
 enum UserDefaultsKeys: String {
     case userId
     case token
+    case longitude
+    case latitude
+    case city
+    case state
+    case zipCode
 }

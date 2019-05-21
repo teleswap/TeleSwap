@@ -23,8 +23,8 @@ class PostViewController : UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var locationManager = CLLocationManager()
-    var offers : [Offer] = []
+    var locationHelper = LocationHelper()
+    var offers : [AcceptableOffer] = []
     var images: [UIImage] = []
     let picker = UIImagePickerController()
     var uploadedImage = UIImage()
@@ -34,24 +34,28 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func addOfferTapped(_ sender: Any) {
-        let offer = Offer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Int(cashOnTopTF.text!)!)
+        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, cashOnTop: Float(cashOnTopTF.text!)!)
         offers.append(offer)
         tableView.reloadData()
         
     }
     
     @IBAction func postSwapTapped(_ sender: Any) {
-        let listing = Listing(id: UUID(), title: titleTextField.text!, body: descriptionTextField.text!, imageUrl: nil, zipCode: Int(zipTextField.text!), city: cityTextField.text!, longitude: nil, latitude: nil)
+        APIController.shared.createUserListing(userId: APIController.shared.currentUser!.id, title: titleTextField.text!, body: descriptionTextField.text!, city: cityTextField.text!, zipCode: Int(zipTextField.text!)!, images: self.images) { (listing, errorMessage) in
+        
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cityTextField.text = UserDefaults.standard.city
+        zipTextField.text = UserDefaults.standard.zipCode
         picker.delegate = self
         mapKitView.delegate = self
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
+            locationHelper.locationManager.delegate = self
+            locationHelper.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationHelper.locationManager.startUpdatingLocation()
         }
         
     }
@@ -74,7 +78,8 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
         cell.phoneNameLabel.text = offers[indexPath.row].title
-        cell.offerOnTop.text = "$\(offers[indexPath.row].offerOnTop)"
+        cell.yearLabel.text = "\(offers[indexPath.row].year ?? 2006)"
+        cell.offerOnTop.text = "$\(offers[indexPath.row].cashOnTop)"
         guard let safeData = offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
         return cell

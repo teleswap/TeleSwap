@@ -9,18 +9,17 @@
 import Foundation
 
 
-struct Offer: Codable {
-    var id: UUID
+struct AcceptableOffer: Codable {
+    var id: Int?
     var title: String
     var year: Int?
     var color : String
     var imageData: Data?
-    var offerOnTop : Int
+    var cashOnTop : Float?
     var imageUrl: String?
-    init(title: String, color: String, offerOnTop: Int){
-        self.id = UUID()
+    init(title: String, color: String, cashOnTop: Float){
         self.title = title
         self.color = color
-        self.offerOnTop = offerOnTop
+        self.cashOnTop = cashOnTop
     }
 }
