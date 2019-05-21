@@ -34,7 +34,7 @@ class PostViewController : UIViewController{
     }
     
     @IBAction func addOfferTapped(_ sender: Any) {
-        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, offerOnTop: Double(cashOnTopTF.text!)!)
+        let offer = AcceptableOffer(title: phoneOfferedTF.text!, color: colorOfferedTF.text!, cashOnTop: Float(cashOnTopTF.text!)!)
         offers.append(offer)
         tableView.reloadData()
         
@@ -79,7 +79,7 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
         cell.phoneNameLabel.text = offers[indexPath.row].title
         cell.yearLabel.text = "\(offers[indexPath.row].year ?? 2006)"
-        cell.offerOnTop.text = "$\(offers[indexPath.row].offerOnTop)"
+        cell.offerOnTop.text = "$\(offers[indexPath.row].cashOnTop)"
         guard let safeData = offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
         return cell

@@ -293,6 +293,62 @@ class APIController {
             }.resume()
     }
     
+    //Create Acceptable Offer
+    func createAcceptableOffer(listingId: Int, title: String, color: String, cashOnTop: Float, completion: @escaping (ErrorMessage?) -> Void) {
+        let url = baseUrl.appendingPathComponent("listings")
+            .appendingPathComponent("\(listingId)")
+            .appendingPathComponent("acceptable_offers")
+        var request = URLRequest(url: url)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = HTTPMethod.post.rawValue
+        
+        
+        let params = ["title": title, "color": color, "cashOnTop": cashOnTop] as [String: Any]
+        
+        guard let token = UserDefaults.standard.token else {
+            NSLog("No JWT Token Set to User Defaults")
+            return
+        }
+        
+        request.setValue(token, forHTTPHeaderField: "Authorization")
+        
+        do {
+            let json = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+            request.httpBody = json
+        } catch {
+            NSLog("Error encoding JSON")
+            return
+        }
+        URLSession.shared.dataTask(with: request) {(data, response, error) in
+            
+            if let error = error {
+                NSLog("There was an error sending params to server: \(error)")
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("Error retrieving data from server(createUserListing)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+                NSLog("Error code from the http request: \(httpResponse.statusCode)")
+                do {
+                    let errorMessage = try JSONDecoder().decode(ErrorMessage.self, from: data)
+                    completion(errorMessage)
+                } catch {
+                    NSLog("Error decoding ErrorMessage(createUserListing) \(error)")
+                    return
+                }
+                return
+            }
+            
+            NSLog("User successfully created offer")
+            completion(nil)
+            
+            }.resume()
+    }
+    
     func uploadImage(imageData: Data, type: ModelKeys, model: Listing, completion: @escaping (ErrorMessage?) -> Void) {
         let encodedImageData = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let url = baseUrl.appendingPathComponent("images")
@@ -376,6 +432,6 @@ class APIController {
     var currentUser: User?
     var listings: [Listing] = []
     var listing: Listing?
-    let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
-    //let baseUrl = URL(string: "http://localhost:3000/api")!
+    //let baseUrl = URL(string: "https://teleswapapi.herokuapp.com/api")!
+    let baseUrl = URL(string: "http://localhost:3000/api")!
 }
