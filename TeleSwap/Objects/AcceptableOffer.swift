@@ -15,11 +15,11 @@ struct AcceptableOffer: Codable {
     var year: Int?
     var color : String
     var imageData: Data?
-    var offerOnTop : Double?
+    var cashOnTop : Float?
     var imageUrl: String?
-    init(title: String, color: String, offerOnTop: Double){
+    init(title: String, color: String, cashOnTop: Float){
         self.title = title
         self.color = color
-        self.offerOnTop = offerOnTop
+        self.cashOnTop = cashOnTop
     }
 }
