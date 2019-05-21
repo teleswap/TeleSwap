@@ -9,7 +9,13 @@
 import UIKit
 
 class ListingsViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var listings : [Listing] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,8 +24,17 @@ class ListingsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
-        APIController.shared.getAllListings { (listing, errorMessage) in
-            
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        APIController.shared.getAllListings { (listings, errorMessage) in
+            if let error = errorMessage{
+                print(error)
+                return
+            }
+            self.listings = listings!
+            self.tableView.reloadData()
         }
     }
 
@@ -33,4 +48,31 @@ class ListingsViewController: UIViewController {
     }
     */
 
+}
+
+//extension for tableView
+
+extension ListingsViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listings.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell") as! ListingTableViewCell
+        cell.phoneLabel.text = self.listings[indexPath.row].title
+        guard let images = listings[indexPath.row].images?.first?.url else {return cell}
+        APIController.shared.getImage(url: URL(string: images)!) { (image, error) in
+            if let error = error{
+                print(error)
+                return
+            }
+            DispatchQueue.main.async {
+                cell.phoneImageView.image = image
+                
+            }
+            
+        }
+        return cell
+    }
+    
 }

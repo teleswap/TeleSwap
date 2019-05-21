@@ -78,7 +78,6 @@ extension PostViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PhoneCell") as! PhoneTableViewCell
         cell.phoneNameLabel.text = offers[indexPath.row].title
-        cell.yearLabel.text = "\(offers[indexPath.row].year ?? 2006)"
         cell.offerOnTop.text = "$\(offers[indexPath.row].cashOnTop)"
         guard let safeData = offers[indexPath.row].imageData else {return cell}
         cell.imageView?.image = UIImage(data: safeData)
